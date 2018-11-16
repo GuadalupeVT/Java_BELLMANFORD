@@ -102,6 +102,25 @@ class BellmanFord {
         System.out.print("Introduce el vertice origen");
         nodoOrigen = Integer.parseInt(in.readLine()) - 1;
     }
+    public void relajoArista() {
+        int i, j;
+        for (i = 0; i < numeroVertices; ++i) {
+            etiquetas[i] = INFINITY;
+        }
+        etiquetas[nodoOrigen] = 0;
+        for (i = 0; i < numeroVertices - 1; ++i) {
+            for (j = 0; j < totalAristas; ++j) {
+                System.out.println(aristas.get(j));
+                if (etiquetas[aristas.get(j).origen] + aristas.get(j).coste < etiquetas[aristas.get(j).destino]) {
+                    etiquetas[aristas.get(j).destino] = etiquetas[aristas.get(j).origen] + aristas.get(j).coste;
+                    predecesor[aristas.get(j).destino] = aristas.get(j).origen;
+                }
+            }
+            for (int p = 0; etiquetas.length < p; p++) {
+                System.out.println("\t" + etiquetas[p]);
+            }
+        }
+    }
 public class PruebaBELLMANFORD {
 
 	public static void main(String[] args) {
