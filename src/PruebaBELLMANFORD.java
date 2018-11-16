@@ -132,9 +132,25 @@ class BellmanFord {
     }
 }
 public class PruebaBELLMANFORD {
-
 	public static void main(String[] args) {
-		
+		  BellmanFord bellman;
+			try {
+				bellman = new BellmanFord();
+				 bellman.relajoArista();
+			        if (bellman.ciclo()) {
+			            for (int i = 0; i < bellman.getNumeroVertices(); i++) {
+			                System.out.println("Coste desde " + bellman.getNodoOrigen() + " a " + (i + 1) + " =>" + bellman.getEtiquetas()[i]);
+			            }
+			            for (int i = 0; i < bellman.getNumeroVertices(); i++) {
+			                System.out.println("El predecesor de " + (i + 1) + " es " + (bellman.getPredecesor()[i] + 1));
+			            }
+			        } else {
+			            System.out.println("Hay un ciclo negativo");
+			        }
+
+			} catch (IOException e) {
+				System.out.println("Error!!");
+			}
 
 	}
 
