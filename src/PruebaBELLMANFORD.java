@@ -121,10 +121,20 @@ class BellmanFord {
             }
         }
     }
+    public boolean ciclo() {
+        int j;
+        for (j = 0; j < totalAristas; ++j) {
+            if (etiquetas[aristas.get(j).origen] + aristas.get(j).coste < etiquetas[aristas.get(j).destino]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 public class PruebaBELLMANFORD {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
